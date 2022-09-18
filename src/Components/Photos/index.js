@@ -60,7 +60,7 @@ export default function Photos() {
                   
                         {photos.map((val) =>
                           <Col xs={12} sm={6} md={6} lg={4} xl={4}>
-                            <li className='m-3'>
+                            <li className='m-3' key={val.id}>
                                 <Card  className="card bg-body shadow">
                                     <Card.Img variant="top" src={val.url} className="w-100" />
                                     <Card.Body>

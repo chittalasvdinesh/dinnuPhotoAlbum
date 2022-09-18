@@ -9,7 +9,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import './index.css'
-import { IoAlbumsSharp } from "react-icons/io5";
+import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineSearch } from "react-icons/ai";
 import SyncLoader from "react-spinners/SyncLoader";
@@ -55,7 +55,7 @@ export default function Home() {
             <Navbar bg="success" fixed='top'>
                 <Container>
                     <Navbar.Brand href="#" className='text-white'>
-                        <IoAlbumsSharp size={25} className="mb-1 pe-1" />
+                        <BsFillJournalBookmarkFill size={25} className="mb-1 pe-1" />
                         Albums
                     </Navbar.Brand>
 
@@ -94,7 +94,7 @@ export default function Home() {
                                 {filteredAlbums.map((val) =>
                                     <Col xs={12} md={6} lg={6} xl={4}>
                                         <div>
-                                            <li className='m-3 list'>
+                                            <li className='m-3 list' key={val.id}>
                                                 <Card onClick={() => navigate(`/photos/${val.id}`)} className="album-card bg-body shadow  p-2">
                                                     <div className='img-container'>
                                                         <Card.Img variant="top" className='w-100 img-fluid card-img' src="https://img.freepik.com/free-photo/cafe-tea-time-break-relaxation-photography-concept_53876-47101.jpg?w=740&t=st=1663485458~exp=1663486058~hmac=910c0b1b4eaff7d9a7ffe6b0a555923095f90243562b897a8e887b82993dc6a5" />

@@ -73,15 +73,16 @@
 }
 
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:576px) {
 
     .search-bar {
         width: 80%;
     }
 
     .album-card {
-        height: 350px;
-        overflow: hidden;
+        height: 100%;
+        width: 400px;
+        /* overflow: hidden; */
 
     }
 
