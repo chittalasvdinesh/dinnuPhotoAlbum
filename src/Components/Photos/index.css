@@ -39,13 +39,14 @@
     transform: scale(1.05)
 }
 
-.logo {
+.logo-text {
     transition: color 2s;
 }
 
-.logo:hover {
+.logo-text:hover {
     color: orange;
 }
+
 
 
 .button {

@@ -5,17 +5,34 @@
 }
 
 .form-container {
-    transition: width 2s;
+    transition: width border 5s;
 }
 
-.form-container:hover {
+/* .form-container:hover {
     border: 2px solid orange !important;
-}
+} */
+
+/* .form-container:hover {
+    border: 2px solid orange !important;
+} */
 
 
 .form-container input:focus {
     box-shadow: none !important;
+    border: 2px solid orange !important;
 
+}
+
+
+.search-icon-container{
+    width: 50px;
+    transition: background-color 2s;
+   
+    
+}
+
+.search-icon-container:hover{
+    background-color: grey !important;
 }
 
 .cards-container {

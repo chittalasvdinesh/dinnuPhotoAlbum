@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,7 +9,6 @@ import './index.css'
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineSearch } from "react-icons/ai";
-import { ImCross } from "react-icons/im";
 import InputGroup from 'react-bootstrap/InputGroup';
 import SyncLoader from "react-spinners/SyncLoader";
 import Navbar from 'react-bootstrap/Navbar';
@@ -45,7 +43,7 @@ export default function Home() {
         console.log(searchValue)
         let finalSearch = [...albums]
         const filteredAlbums = finalSearch.filter((album) => {
-            if (searchValue == "") {
+            if (searchValue ==="") {
                 return album
 
 
@@ -73,21 +71,22 @@ export default function Home() {
 
                     <Navbar.Brand href="" className='text-white d-flex'>
                         <BsFillJournalBookmarkFill size={25} className="mb-1 mt-2 pe-1" />
-                        <h2 className='d-none d-md-block'>Albums</h2>
+                        <h2 className='d-none d-md-block logo-text'>Albums</h2>
                     </Navbar.Brand>
                     <Form>
 
-                        <div className='d-flex align-items-center p-2'>
-                            <InputGroup className="form-container">
+                        <div className='d-flex align-items-center'>
+                            <InputGroup className="form-container bg-light">
                                 <Form.Control
-                                    placeholder="Search Name"
+                                    placeholder="Search by name"
                                     type="search"
                                     aria-label="Recipient's username"
                                     aria-describedby="basic-addon2"
+                                    className='rounded bg-transparent border-0'
                                     onChange={(event) => setSearchValue(event.target.value)}
                                 />
-                                <a type="button" className='bg-warning rounded p-1' id="button-addon2" onClick={searchFilteredAlbums}>
-                                    <AiOutlineSearch size={20} className="search-icon text-dark " />
+                                <a  className='bg-warning p-1 search-icon-container d-flex align-items-center justify-content-center' id="button-addon2" onClick={searchFilteredAlbums}>
+                                    <AiOutlineSearch size={25} className="search-icon text-dark " />
                                 </a>
                             </InputGroup>
                         </div>
@@ -124,7 +123,7 @@ export default function Home() {
                                                         <Card.Title className='p-1'>Card:{val.id}</Card.Title>
                                                         <Card.Subtitle className="p-1">{val.title}</Card.Subtitle>
                                                         <Card.Text className='p-1'>
-                                                            UserId:{val.userId}
+                                                            UserId: {val.userId}
                                                         </Card.Text>
                                                     </Card.Body>
                                                 </Card>
