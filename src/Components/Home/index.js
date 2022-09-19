@@ -124,14 +124,15 @@ export default function Home() {
                                             <li className='m-2 list' >
                                                 <Card onClick={() => navigate(`/photos/${val.id}`)} className="album-card bg-body shadow  p-2">
                                                     <div className='img-container'>
-                                                        <Card.Img variant="top" className='w-100 img-fluid card-img' src="https://img.freepik.com/free-photo/cafe-tea-time-break-relaxation-photography-concept_53876-47101.jpg?w=740&t=st=1663485458~exp=1663486058~hmac=910c0b1b4eaff7d9a7ffe6b0a555923095f90243562b897a8e887b82993dc6a5" />
+                                                        <Card.Img variant="top" className='w-100 img-fluid card-img' src="https://picsum.photos/200" />
                                                     </div>
                                                     <Card.Body className='card-body d-flex justify-content-start'>
-                                                        <Card.Title className='p-1'>Card:{val.id}</Card.Title>
-                                                        <Card.Subtitle className="p-1">{val.title}</Card.Subtitle>
+                                                        {/* <Card.Title className='p-1'><span className='text-info'>Title:</span> {val.title}</Card.Title> */}
+                                                        <Card.Title className='text-center pb-1'><span className='text-info'>Title:</span> {val.title}</Card.Title>
+                                                        {/* <Card.Subtitle className="p-1">{val.title}</Card.Subtitle>
                                                         <Card.Text className='p-1'>
                                                             UserId: {val.userId}
-                                                        </Card.Text>
+                                                        </Card.Text> */}
                                                     </Card.Body>
                                                 </Card>
                                             </li>

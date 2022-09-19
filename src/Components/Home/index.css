@@ -52,8 +52,12 @@
 .album-card {
     border-radius: 15px;
     max-width: 560px;
-    height: 400px;
+    height: 420px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -64,6 +68,10 @@
 .img-container {
     overflow: hidden;
     margin: 10px;
+    /* width: 280px;
+    height: 260px;
+    background: blue; */
+   
 }
 
 .card-img {
