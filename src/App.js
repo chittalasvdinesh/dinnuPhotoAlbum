@@ -2,7 +2,7 @@ import{BrowserRouter as Router, Routes,Route} from 'react-router-dom'
 import ComponentNotFound from './Components/ComponentNotFound';
 import Home from './Components/Home';
 import Photos from './Components/Photos';
-import './index.css'
+import './App.css'
 
 function App() {
   return (
