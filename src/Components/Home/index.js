@@ -117,24 +117,24 @@ export default function Home() {
                                 </div>
                             </Col>
                         ) : (
-                            <ul className="cards-container d-flex mt-5">
+                            <div className="cards-container d-flex mt-5">
                                 {finalAlbum.map((val) =>
-                                    <Col xs={12} md={6} lg={6} xl={4} key={val.id}>
-                                        <div>
-                                            <li className='m-2 list' >
-                                                <Card onClick={() => navigate(`/photos/${val.id}`)} className="album-card bg-body shadow  p-2">
+                                    <Col xs={12} md={6} lg={6} xl={4} key={val.id} >
+                                       
+                                            
+                                                <Card onClick={() => navigate(`/photos/${val.id}`)} className="album-card bg-body shadow  p-2 m-2">
                                                     <div className='img-container'>
-                                                        <Card.Img variant="top" className='w-100 img-fluid card-img' src="https://picsum.photos/200" />
+                                                        <Card.Img variant="top" className='img-fluid card-img' src="https://picsum.photos/600/400" />
                                                     </div>
                                                     <Card.Body className='card-body d-flex justify-content-start'>
-                                                        <Card.Title className='text-center pb-1'><span className='text-info'>Title:</span> {val.title}</Card.Title>
+                                                        <h2 className='text-center pb-1 h5 title-text'> {val.title}</h2>
                                                     </Card.Body>
                                                 </Card>
-                                            </li>
-                                        </div>
+                                         
+                                        
                                     </Col>
                                 )}
-                            </ul>
+                            </div>
                         )
                     }
                 </Row>
