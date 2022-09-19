@@ -60,8 +60,8 @@ export default function Photos() {
                                 <ul className="cards-container d-flex mt-5">
 
                                     {photos.map((val) =>
-                                        <Col xs={12} sm={12} md={6} lg={4} xl={4}>
-                                            <li className='m-3' key={val.id}>
+                                        <Col xs={12} sm={12} md={6} lg={4} xl={4}  key={val.id}>
+                                            <li className='m-3'>
                                                 <Card className="photo-card bg-body shadow">
                                                     <Card.Img variant="top" src={val.url} className="w-100 photo-img img-fluid" />
                                                     <Card.Body>
