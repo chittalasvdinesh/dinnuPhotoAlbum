@@ -41,7 +41,7 @@ export default function Photos() {
         <Button variant="outline-success rounded-pill text-white border-white button" onClick={()=>navigate('/')}>Back to albums</Button>
       </Container>
     </Navbar>
-        <Container >
+        <Container className='mt-5' >
             <Row>
 
             {loading ?
@@ -61,8 +61,8 @@ export default function Photos() {
                         {photos.map((val) =>
                           <Col xs={12} sm={6} md={6} lg={4} xl={4}>
                             <li className='m-3' key={val.id}>
-                                <Card  className="card bg-body shadow">
-                                    <Card.Img variant="top" src={val.url} className="w-100" />
+                                <Card  className="photo-card bg-body shadow">
+                                    <Card.Img variant="top" src={val.url} className="w-100 photo-img" />
                                     <Card.Body>
                                         <Card.Title>photoId:{val.id}</Card.Title>
                                         <Card.Text className='d-flex'>

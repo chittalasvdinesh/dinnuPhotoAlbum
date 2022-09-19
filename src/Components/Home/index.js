@@ -5,9 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Spinner from 'react-bootstrap/Spinner';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import './index.css'
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
@@ -74,7 +72,7 @@ export default function Home() {
                     </Form>
                 </Container>
             </Navbar>
-            <Container>
+            <Container className='mt-5'>
 
                 {/* cards-section */}
 
