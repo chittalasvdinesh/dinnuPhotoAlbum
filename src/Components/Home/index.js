@@ -127,12 +127,7 @@ export default function Home() {
                                                         <Card.Img variant="top" className='w-100 img-fluid card-img' src="https://picsum.photos/200" />
                                                     </div>
                                                     <Card.Body className='card-body d-flex justify-content-start'>
-                                                        {/* <Card.Title className='p-1'><span className='text-info'>Title:</span> {val.title}</Card.Title> */}
                                                         <Card.Title className='text-center pb-1'><span className='text-info'>Title:</span> {val.title}</Card.Title>
-                                                        {/* <Card.Subtitle className="p-1">{val.title}</Card.Subtitle>
-                                                        <Card.Text className='p-1'>
-                                                            UserId: {val.userId}
-                                                        </Card.Text> */}
                                                     </Card.Body>
                                                 </Card>
                                             </li>
