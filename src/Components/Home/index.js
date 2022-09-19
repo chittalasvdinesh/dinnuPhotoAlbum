@@ -10,14 +10,18 @@ import './index.css'
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineSearch } from "react-icons/ai";
+import { ImCross } from "react-icons/im";
+import InputGroup from 'react-bootstrap/InputGroup';
 import SyncLoader from "react-spinners/SyncLoader";
 import Navbar from 'react-bootstrap/Navbar';
 
 export default function Home() {
     const navigate = useNavigate()
     const [albums, setAlbums] = useState([])
+    const [finalAlbum, setFinalAlbum] = useState([])
     const [loading, setLoading] = useState(true)
     const [searchValue, setSearchValue] = useState("")
+    const [opacityVal, setOpacityVal] = useState("0.25")
 
 
     useEffect(() => {
@@ -28,48 +32,67 @@ export default function Home() {
                     console.log(res.data)
                     setLoading(false)
                     setAlbums(res.data)
+                    setFinalAlbum(res.data)
+                    setOpacityVal("1")
                 }
             })
             .catch(err => console.log(err))
     }, [])
 
-    const filteredAlbums = albums.filter((album) => {
-        if (searchValue == "") {
-            return album
-        }
-        else if (album.title.toLowerCase().includes(searchValue.toLowerCase())) {
-            return album
 
-        }
-    })
 
+    const searchFilteredAlbums = () => {
+        console.log(searchValue)
+        let finalSearch = [...albums]
+        const filteredAlbums = finalSearch.filter((album) => {
+            if (searchValue == "") {
+                return album
+
+
+            }
+            else if (album.title.toLowerCase().includes(searchValue.toLowerCase())) {
+                return album
+
+            }
+        })
+
+        setFinalAlbum(filteredAlbums)
+        console.log(filteredAlbums)
+
+    }
 
 
     return (
 
-        <>
-        {/* Header section */}
+
+        <div style={{ opacity: opacityVal }}>
+            {/* Header section */}
 
             <Navbar bg="success" fixed='top'>
                 <Container>
-                    <Navbar.Brand href="#" className='text-white'>
-                        <BsFillJournalBookmarkFill size={25} className="mb-1 pe-1" />
-                        Albums
+
+                    <Navbar.Brand href="" className='text-white d-flex'>
+                        <BsFillJournalBookmarkFill size={25} className="mb-1 mt-2 pe-1" />
+                        <h2 className='d-none d-md-block'>Albums</h2>
                     </Navbar.Brand>
+                    <Form>
 
-                    <Form className="">
-                    <div className='d-flex align-items-center rounded-pill shadow search-bar-container bg-light button p-1'>
-                    <AiOutlineSearch size={24} />
-                        <Form.Control
-                            type="search"
-                            placeholder="Search Albums"
-                            className="search-bar bg-transparent border-0"
-                            aria-label="Search"
-                            onChange={(event) => setSearchValue(event.target.value)}
-                        />
+                        <div className='d-flex align-items-center p-2'>
+                            <InputGroup className="form-container">
+                                <Form.Control
+                                    placeholder="Search Name"
+                                    type="search"
+                                    aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2"
+                                    onChange={(event) => setSearchValue(event.target.value)}
+                                />
+                                <a type="button" className='bg-warning rounded p-1' id="button-addon2" onClick={searchFilteredAlbums}>
+                                    <AiOutlineSearch size={20} className="search-icon text-dark " />
+                                </a>
+                            </InputGroup>
                         </div>
-
                     </Form>
+
                 </Container>
             </Navbar>
             <Container className='mt-5'>
@@ -89,10 +112,10 @@ export default function Home() {
                             </Col>
                         ) : (
                             <ul className="cards-container d-flex mt-5">
-                                {filteredAlbums.map((val) =>
+                                {finalAlbum.map((val) =>
                                     <Col xs={12} md={6} lg={6} xl={4}>
                                         <div>
-                                            <li className='m-3 list' key={val.id}>
+                                            <li className='m-2 list' key={val.id}>
                                                 <Card onClick={() => navigate(`/photos/${val.id}`)} className="album-card bg-body shadow  p-2">
                                                     <div className='img-container'>
                                                         <Card.Img variant="top" className='w-100 img-fluid card-img' src="https://img.freepik.com/free-photo/cafe-tea-time-break-relaxation-photography-concept_53876-47101.jpg?w=740&t=st=1663485458~exp=1663486058~hmac=910c0b1b4eaff7d9a7ffe6b0a555923095f90243562b897a8e887b82993dc6a5" />
@@ -114,6 +137,6 @@ export default function Home() {
                     }
                 </Row>
             </Container>
-        </>
+        </div>
     )
 }
